@@ -1,0 +1,57 @@
+body {
+    width: 80%;
+    margin: 0 auto;
+    font-family: "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system;
+    background: #EFEFEF;
+}
+
+.header {
+    text-align: center;
+}
+
+header h1 {
+    color: #39424e;
+}
+
+.form-section {
+    background: white;
+    padding: 1em 2em;
+    margin-bottom: 2em;
+    border-radius: 1em;
+    -webkit-box-shadow: 5px 5px 15px 1px #A8A8A8;
+    box-shadow: 5px 5px 15px 1px #A8A8A8;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.form-section button {
+    margin-top: 1em;
+}
+
+.form-section h2 {
+    width: 100%;
+    margin-top: 0;
+    color: #4285F4;
+}
+
+.generic-section {
+    background: white;
+    padding: 1em 2em;
+    border-radius: 1em;
+    -webkit-box-shadow: 5px 5px 15px 1px #A8A8A8;
+    box-shadow: 5px 5px 15px 1px #A8A8A8;
+    margin-bottom: 2em;
+}
+
+.student-standup-form {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+}
+
+.generic-section h2 {
+    width: 100%;
+    margin-top: 0;
+    color: #4285F4;
+}
