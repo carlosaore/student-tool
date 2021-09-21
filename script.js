@@ -1,17 +1,3 @@
-// List of students
-const students = [
-  "Tim",
-  "Pierre",
-  "Elli",
-  "Jana",
-  "Josh",
-  "Francis",
-  "Liana",
-  "Gaunthier",
-  "Elisa"
-];
-
-
 // Generates a whole integer between limits
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -22,6 +8,20 @@ function getRandomInt(min, max) {
 
 // Calculate how many groups based on the number of students and how many people per group
 function byPeople(peoplePerGroup) {
+
+  // List of students
+  const students = [
+    "Tim",
+    "Pierre",
+    "Elli",
+    "Jana",
+    "Josh",
+    "Francis",
+    "Liana",
+    "Gaunthier",
+    "Elisa"
+  ];
+
   const people = students;
   const numberOfGroups = Math.ceil(people.length / peoplePerGroup);
   return generate(people, numberOfGroups, peoplePerGroup);
@@ -30,6 +30,20 @@ function byPeople(peoplePerGroup) {
 
 // Calculate how many groups based on the number of students and how many people per group
 function byGroups(numberOfGroups) {
+
+  // List of students
+  const students = [
+    "Tim",
+    "Pierre",
+    "Elli",
+    "Jana",
+    "Josh",
+    "Francis",
+    "Liana",
+    "Gaunthier",
+    "Elisa"
+  ];
+
   const people = students;
   console.log(people);
   const peoplePerGroup = Math.ceil(people.length / numberOfGroups);
@@ -69,19 +83,15 @@ function generate(people, numberOfGroups, peoplePerGroup) {
 
 
 
-
-console.log(byGroups(3));
-console.log(byGroups(3));
-console.log(byGroups(3));
-
-
-
-
 // Add code for button
 const studentList = document.querySelector("ul");
 
+// NUMBER OF GROUPS
+
+const form1 = document.querySelector("#form1");
+
 // When the user clicks on the button
-form.onsubmit = function (event) {
+form1.onsubmit = function (event) {
 
   // prevent default page reloading
   event.preventDefault();
@@ -90,8 +100,38 @@ form.onsubmit = function (event) {
   removeAllChildNodes(studentList);
 
   // How many groups does the user want? call the function
-  const number = document.querySelector("#number");
+  const number = document.querySelector("#number1");
   const temp = byGroups(number.value);
+
+  // Loop through and create an LI tag for each group
+  for (i=0; i<temp.length; i++) {
+    let myElement = document.createElement("li");
+
+    // Join the arrays together with a space between and add to list
+    myElement.innerText = temp[i].join(" ");
+    studentList.appendChild(myElement);
+  }
+};
+
+
+
+
+// DEVS PER GROUP
+
+const form2 = document.querySelector("#form2");
+
+// When the user clicks on the button
+form2.onsubmit = function (event) {
+
+  // prevent default page reloading
+  event.preventDefault();
+
+  // remove any previous list items
+  removeAllChildNodes(studentList);
+
+  // How many groups does the user want? call the function
+  const number = document.querySelector("#number2");
+  const temp = byPeople(number.value);
 
   // Loop through and create an LI tag for each group
   for (i=0; i<temp.length; i++) {
