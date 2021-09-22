@@ -1,3 +1,17 @@
+const students = [
+    "Tim",
+    "Pierre",
+    "Elli",
+    "Jana",
+    "Josh",
+    "Francis",
+    "Liana",
+    "Gauthier",
+    "Elisa"
+    ];
+
+
+
 /** 
  * Removes all the child nodes from a node
  * 
@@ -129,103 +143,108 @@ function generateByGroupSize(people, sizeOfGroup) {
 };
 
 
+
+/**
+ * drawGroups() - creates an <li> item for each group, also returns error messages to users 
+ * 
+ * @param {object} result result from the generate functions (array of groups or error msg)
+ * 
+ */
+
+function drawGroups(result) {
+
+    // If the generate function generated an error, give it to the user, otherwise reset
+    if (result.msg) {
+        alertMessage.innerText = result.msg;
+        return;
+    }
+
+    alertMessage.innerText = "";
+
+    // Loop through and create an LI tag for each group
+    for (i=0; i<result.length; i++) {
+        let myElement = document.createElement("li");
+
+        // Join the arrays together with a space between and add to list
+        myElement.innerText = result[i].join(" ");
+        studentList.appendChild(myElement);
+    }
+}
+
+
+
 // HTML DOM queries
 const studentList = document.querySelector("ul");
 const form1 = document.querySelector("#form1");
 const alertMessage = document.querySelector("#alert");
+const standup = document.querySelector("#standup");
+
+/** 
+ * drawStandup() - generates the checkboxs for each student
+ * 
+ * @param {array} names - array of student names
+ * 
+ * */
+
+function drawStandup(names) {
+
+    // Loop through and create an LI tag for each group
+    for (i=0; i<names.length; i++) {
+
+        // Create HTML element for each student and render
+        let myElement = document.createElement("div");
+        myElement.innerHTML = '<label class="matter-checkbox"><input type="checkbox"><span>' + names[i] + '</span></label>';
+        standup.appendChild(myElement);
+    }
+}
 
 
+drawStandup(students)
 
-/** Submit Button code for the first form */
+
+/** 
+ * Submit Button code for the first form 
+ * 
+ * */
 
 form1.onsubmit = function (event) {
 
+    // Map the students list to a new array to protect the original
+    let classList = students.map(element => element)
 
-  // List of students (Not sure why but it needs to be here!)
-  const students = [
-      "Tim",
-      "Pierre",
-      "Elli",
-      "Jana",
-      "Josh",
-      "Francis",
-      "Liana",
-      "Gauthier",
-      "Elisa"
-      ];
+    // Prevent default page reloading
+    event.preventDefault();
 
-  // Prevent default page reloading
-  event.preventDefault();
+    // Remove any previous list items on the DOM
+    removeAllChildNodes(studentList);
 
-  // Remove any previous list items on the DOM
-  removeAllChildNodes(studentList);
+    // How many groups does the user want? then call the function
+    const number = document.querySelector("#number1");
 
-  // How many groups does the user want? then call the function
-  const number = document.querySelector("#number1");
-  const temp = generateByGroups(students, number.value);
+    // Call generate by groups and then draw the result
+    drawGroups(generateByGroups(classList, number.value));
 
-  // If the generate function generated an error, give it to the user, otherwise reset
-  if (temp.msg) {
-      alertMessage.innerText = temp.msg;
-      return;
-  }
-
-  alertMessage.innerText = "";
-
-  // Loop through and create an LI tag for each group
-  for (i=0; i<temp.length; i++) {
-      let myElement = document.createElement("li");
-  
-      // Join the arrays together with a space between and add to list
-      myElement.innerText = temp[i].join(" ");
-      studentList.appendChild(myElement);
-  }
 };
 
 
 
-/** Submit Button code for the second form */
+/** 
+ * Submit Button code for the second form 
+ * 
+ * */
 
 form2.onsubmit = function (event) {
 
+    // Map the students list to a new array to protect the original
+    let classList = students.map(element => element)
 
-  // List of students (Not sure why but it needs to be here!)
-  const students = [
-      "Tim",
-      "Pierre",
-      "Elli",
-      "Jana",
-      "Josh",
-      "Francis",
-      "Liana",
-      "Gauthier",
-      "Elisa"
-      ];
+    // Prevent default page reloading
+    event.preventDefault();
 
-  // Prevent default page reloading
-  event.preventDefault();
+    // Remove any previous list items on the DOM
+    removeAllChildNodes(studentList);
 
-  // Remove any previous list items on the DOM
-  removeAllChildNodes(studentList);
-
-  // How many groups does the user want? then call the function
-  const number = document.querySelector("#number2");
-  const temp = generateByGroupSize(students, number.value);
-
-  // If the generate function generated an error, give it to the user, otherwise reset
-  if (temp.msg) {
-      alertMessage.innerText = temp.msg;
-      return;
-  }
-
-  alertMessage.innerText = "";
-
-  // Loop through and create an LI tag for each group
-  for (i=0; i<temp.length; i++) {
-      let myElement = document.createElement("li");
-  
-      // Join the arrays together with a space between and add to list
-      myElement.innerText = temp[i].join(" ");
-      studentList.appendChild(myElement);
-  }
+    // How many groups does the user want? then call the function
+    const number = document.querySelector("#number2");
+    drawGroups(generateByGroupSize(classList, number.value));
 };
