@@ -13,6 +13,7 @@
         <title>Document</title>
     </head>
     <body>
+        
         <header class="header">
             <h1>Remote Web Dev September</h1>
         </header>
@@ -37,12 +38,25 @@
         </section>
         <section class="generic-section">
             <h2>Team maker Gauthier And Liana</h2>
-            <form>
-                <label>Number of groups<input type="number"></label>
-                <p>or</p>
-                <label>Devs per group<input type="number"></label>
+            <form id="form1">
+                <label>Number of groups<input type="number" id="number1" value="2"></label>
                 <button type="submit" class="matter-button-contained">Generate</button>
             </form>
+            
+                <p>or</p>
+            <form id="form2">
+                <label>Devs per group<input type="number" id="number2" value="3"></label>
+                <button type="submit" class="matter-button-contained">Generate</button>
+            </form>
+            <div class="groups">
+                <div id="alert"></div>
+                <ul id="students">
+
+                </ul>
+            </div>
         </section>
+
+        <script src="script.js"></script>
+        
     </body>
 </html>
