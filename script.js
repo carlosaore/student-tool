@@ -1,9 +1,9 @@
 /** 
-   * Removes all the child nodes from a node
-   * 
-   * @param {Element} parent is the parent...
-   * 
-   * **/
+ * Removes all the child nodes from a node
+ * 
+ * @param {Element} parent is the parent...
+ * 
+ * **/
 
  function removeAllChildNodes(parent) {
   while (parent.firstChild) {
@@ -150,7 +150,7 @@ form1.onsubmit = function (event) {
       "Josh",
       "Francis",
       "Liana",
-      "Gaunthier",
+      "Gauthier",
       "Elisa"
       ];
 
@@ -198,7 +198,7 @@ form2.onsubmit = function (event) {
       "Josh",
       "Francis",
       "Liana",
-      "Gaunthier",
+      "Gauthier",
       "Elisa"
       ];
 
@@ -229,9 +229,3 @@ form2.onsubmit = function (event) {
       studentList.appendChild(myElement);
   }
 };
-
-
-
-
-
-
