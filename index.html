@@ -14,10 +14,10 @@
     </head>
     <body>
         
-        <header class="header">
+        <header id="header"> <!-- class="header"> -->
             <h1>Remote Web Dev September</h1>
         </header>
-        <section class="form-section">
+        <section class="main-section" id="standup-section"> <!-- class="form-section"> -->
             <h2>Stand up</h2>
             <form class="student-standup-form">
                 <label class="matter-checkbox"><input type="checkbox"><span>Student</span></label>
@@ -33,24 +33,24 @@
                 <label class="matter-checkbox"><input type="checkbox"><span>Student</span></label>
                 <label class="matter-checkbox"><input type="checkbox"><span>Student</span></label>
                 <label class="matter-checkbox"><input type="checkbox"><span>Student</span></label>
-                <button type="submit" class="matter-button-contained">Reset</button>
             </form>
+            <button type="submit" class="matter-button-contained">Reset</button>
         </section>
-        <section class="generic-section">
+        <section class="main-section" id="grp-section"> <!-- class="generic-section"> -->
             <h2>Team maker</h2>
-            <form id="form1">
-                <label>Number of groups<input type="number" id="number1" value="2"></label>
+            <form id="nb-grp-form"> <!-- form1"> -->
+                <label>Number of groups<input type="number" id="nb-grp-label" value="2"></label> <!-- former label: number1 -->
                 <button type="submit" class="matter-button-contained">Generate</button>
             </form>
             
                 <p>or</p>
-            <form id="form2">
-                <label>Devs per group<input type="number" id="number2" value="3"></label>
+            <form id="grp-size-form"> <!-- form2"> -->
+                <label>Devs per group<input type="number" id="grp-size-label" value="3"></label> <!-- former label: number2 -->
                 <button type="submit" class="matter-button-contained">Generate</button>
             </form>
-            <div class="groups">
+            <div class="grp-subsection"> <!-- groups"> -->
                 <div id="alert"></div>
-                <ul id="students">
+                <ul id="grp-list"> <!-- students"> -->
 
                 </ul>
             </div>
