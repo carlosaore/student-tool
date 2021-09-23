@@ -26,6 +26,10 @@ header h1 {
   flex-wrap: wrap;
 }
 
+#student.list {
+  size: 25;
+}
+
 .form-section button {
   margin-top: 1em;
 }
@@ -59,4 +63,8 @@ header h1 {
 
 #alert {
   color: red;
+}
+
+#students {
+  list-style: decimal;
 }

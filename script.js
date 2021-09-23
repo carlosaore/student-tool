@@ -182,7 +182,7 @@ form2.onsubmit = function (event) {
 	const number = document.querySelector("#number2");
 	const temp = generateByGroupSize(students, number.value);
 
-	// If the generate function generated an error, give it to the user, otherwise reset
+	// If the generate function produced an error, give it to the user, otherwise reset
 	if (temp.msg) {
 		alertMessage.innerText = temp.msg;
 		return;
@@ -194,8 +194,8 @@ form2.onsubmit = function (event) {
 	for (let i = 0; i < temp.length; i++) {
 		let myElement = document.createElement("li");
 
-		// Join the arrays together with a space between and add to list
-		myElement.innerText = temp[i].join(" ");
+		// Join the arrays together with a space + comma between and add to list
+		myElement.innerText = temp[i].join(", ");
 		studentList.appendChild(myElement);
 	}
 };
