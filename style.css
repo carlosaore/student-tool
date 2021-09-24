@@ -14,35 +14,29 @@ header h1 {
   color: #39424e;
 }
 
-.form-section {
+.main-section {
   background: white;
   padding: 1em 2em;
   margin-bottom: 2em;
   border-radius: 1em;
   -webkit-box-shadow: 5px 5px 15px 1px #a8a8a8;
   box-shadow: 5px 5px 15px 1px #a8a8a8;
+}
+
+#standup-section {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.form-section button {
+#standup-section button {
   margin-top: 1em;
 }
 
-.form-section h2 {
+#standup-section h2 {
   width: 100%;
   margin-top: 0;
   color: #4285f4;
-}
-
-.generic-section {
-  background: white;
-  padding: 1em 2em;
-  border-radius: 1em;
-  -webkit-box-shadow: 5px 5px 15px 1px #a8a8a8;
-  box-shadow: 5px 5px 15px 1px #a8a8a8;
-  margin-bottom: 2em;
 }
 
 .student-standup-form {
@@ -51,7 +45,10 @@ header h1 {
   height: max-content;
 }
 
-.generic-section h2 {
+#grp-section {
+}
+
+#grp-section h2 {
   width: 100%;
   margin-top: 0;
   color: #4285f4;

@@ -132,25 +132,25 @@ function generateByGroupSize(students, sizeOfGroup) {
 }
 
 // HTML DOM queries
-const studentList = document.querySelector("ul");
-const form1 = document.querySelector("#form1");
-const form2 = document.querySelector("#form2");
-const alertMessage = document.querySelector("#alert");
+const grpList = document.getElementById("grp-list"); //studentList
+const nbGrpForm = document.getElementById("nb-grp-form"); //form1
+const grpSizeForm = document.getElementById("grp-size-form"); //form2
+const alertMessage = document.getElementById("alert");
 
 /** Submit Button code for the first form */
 
-form1.onsubmit = function (event) {
+nbGrpForm.onsubmit = function (event) {
 	// List of students (Not sure why but it needs to be here!)
 
 	// Prevent default page reloading
 	event.preventDefault();
 
 	// Remove any previous list items on the DOM
-	removeAllChildNodes(studentList);
+	removeAllChildNodes(grpList);
 
 	// How many groups does the user want? then call the function
-	const number = document.querySelector("#number1");
-	const temp = generateByGroups(students, number.value);
+	const nbGrpLabel = document.getElementById("nb-grp-label"); // number
+	const temp = generateByGroups(students, nbGrpLabel.value);
 
 	// If the generate function generated an error, give it to the user, otherwise reset
 	if (temp.msg) {
@@ -166,21 +166,21 @@ form1.onsubmit = function (event) {
 
 		// Join the arrays together with a space between and add to list
 		myElement.innerText = temp[i].join(" ");
-		studentList.appendChild(myElement);
+		grpList.appendChild(myElement);
 	}
 };
 
 /** Submit Button code for the second form */
-form2.onsubmit = function (event) {
+grpSizeForm.onsubmit = function (event) {
 	// Prevent default page reloading
 	event.preventDefault();
 
 	// Remove any previous list items on the DOM
-	removeAllChildNodes(studentList);
+	removeAllChildNodes(grpList);
 
 	// How many groups does the user want? then call the function
-	const number = document.querySelector("#number2");
-	const temp = generateByGroupSize(students, number.value);
+	const grpSizeLabel = document.getElementById("grp-size-label"); // number
+	const temp = generateByGroupSize(students, grpSizeLabel.value);
 
 	// If the generate function generated an error, give it to the user, otherwise reset
 	if (temp.msg) {
@@ -196,6 +196,6 @@ form2.onsubmit = function (event) {
 
 		// Join the arrays together with a space between and add to list
 		myElement.innerText = temp[i].join(" ");
-		studentList.appendChild(myElement);
+		grpList.appendChild(myElement);
 	}
 };
