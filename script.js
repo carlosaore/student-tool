@@ -1,4 +1,4 @@
-const students = [
+let students = [
 	"Tim",
 	"Pierre",
 	"Elli",
@@ -9,6 +9,29 @@ const students = [
 	"Gauthier",
 	"Elisa",
 ];
+
+/**
+ * Import the list of student from a comma separated string
+ * 
+ * @param {string} parent 
+ * 
+ */
+ let importButton = document.getElementById("import-button");
+
+ importButton.addEventListener("click", function (event) {
+	// Prevent default page reloading
+	event.preventDefault();
+
+   	const importList = document.getElementById("import-list").value;
+	students = importList.split(",");
+
+	if (confirm(`Please confirm that the list is correct: ${students}`)) {
+		console.log("import ok");
+	  } else {
+		console:log("import failure");
+	}
+
+ });
 
 /**
  * Removes all the child nodes from a node
