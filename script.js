@@ -1,4 +1,5 @@
-let students = [
+let students = [];
+/* Commented out because this variable is now assigned with the import list method.
 	"Tim",
 	"Pierre",
 	"Elli",
@@ -9,29 +10,7 @@ let students = [
 	"Gauthier",
 	"Elisa",
 ];
-
-/**
- * Import the list of student from a comma separated string
- * 
- * @param {string} parent 
- * 
- */
- let importButton = document.getElementById("import-button");
-
- importButton.addEventListener("click", function (event) {
-	// Prevent default page reloading
-	event.preventDefault();
-
-   	const importList = document.getElementById("import-list").value;
-	students = importList.split(",");
-
-	if (confirm(`Please confirm that the list is correct: ${students}`)) {
-		console.log("import ok");
-	  } else {
-		console:log("import failure");
-	}
-
- });
+*/
 
 /**
  * Removes all the child nodes from a node
@@ -155,12 +134,12 @@ function generateByGroupSize(students, sizeOfGroup) {
 }
 
 // HTML DOM queries
-const grpList = document.getElementById("grp-list"); //studentList
-const nbGrpForm = document.getElementById("nb-grp-form"); //form1
-const grpSizeForm = document.getElementById("grp-size-form"); //form2
+const grpList = document.getElementById("grp-list");
+const nbGrpForm = document.getElementById("nb-grp-form");
+const grpSizeForm = document.getElementById("grp-size-form");
 const alertMessage = document.getElementById("alert");
 
-/** Submit Button code for the first form */
+/** Submit Button code for the number by group form */
 
 nbGrpForm.onsubmit = function (event) {
 	// List of students (Not sure why but it needs to be here!)
@@ -193,7 +172,7 @@ nbGrpForm.onsubmit = function (event) {
 	}
 };
 
-/** Submit Button code for the second form */
+/** Submit Button code for the group size form */
 grpSizeForm.onsubmit = function (event) {
 	// Prevent default page reloading
 	event.preventDefault();
@@ -222,3 +201,25 @@ grpSizeForm.onsubmit = function (event) {
 		grpList.appendChild(myElement);
 	}
 };
+
+/* Submit button code to import the list of student from a comma separated string */
+ 
+let importButton = document.getElementById("import-button");
+
+ importButton.addEventListener("click", function (event) {
+	// Prevent default page reloading
+	event.preventDefault();
+
+   	const importList = document.getElementById("import-list").value;
+	students = importList.split(",");
+	document.getElementById("grp-size").innerHTML = students.length;
+
+	/* Not sure it is useful
+	if (confirm(`Please confirm that the list is correct: ${students}`)) {
+		console.log("import ok");
+	  } else {
+		console:log("import failure");
+	}
+	*/
+
+ });
