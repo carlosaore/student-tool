@@ -134,8 +134,8 @@ function generateByGroupSize(students, sizeOfGroup) {
 // HTML DOM queries
 const grpList = document.getElementById("grp-list"); //studentList
 const nbGrpForm = document.getElementById("nb-grp-form"); //form1
-const grpSizeForm = document.getElementById("#grp-size-form"); //form2
-const alertMessage = document.getElementById("#alert");
+const grpSizeForm = document.getElementById("grp-size-form"); //form2
+const alertMessage = document.getElementById("alert");
 
 /** Submit Button code for the first form */
 
