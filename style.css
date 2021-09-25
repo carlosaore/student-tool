@@ -41,9 +41,33 @@ h2 {
   flex-wrap: wrap;
 }
 
-#standup-section button {
-  margin-top: 1em;
+#student-list-form{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 5%;
+  grid-row-gap: 5%;  
 }
+
+#import-list {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+#import-button {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+#student-select{
+  width: 100px;
+}
+/*
+#import-div {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+*/
 
 .student-standup-form {
   display: flex;

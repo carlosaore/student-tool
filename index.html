@@ -22,10 +22,17 @@
             <details>
                 <form id="student-list-form">
                     <input id="import-list" type="text" value="Copy/past the list of names (comma separated) here">
-                    <div>
-                        <button type="submit" class="matter-button-contained" id="import-button">Import</button>
+                    <button type="submit" class="matter-button-contained" id="import-button">Import</button>
+                    <div id="import-div">
                         <label>Group size: </label>
                         <output id="grp-size">0</output>
+                    </div>
+                    <div id="select-2-remove">
+                        <label>Select</label>
+                        <select id="student-select">
+                            <option value="">----</option>
+                        </select>
+                        <button type="submit" class="matter-button-contained" id="remove-button">Remove</button>
                     </div>
                 </form>
             </details>

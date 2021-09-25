@@ -1,6 +1,6 @@
 let students = [];
 /* Commented out because this variable is now assigned with the import list method.
-	"Tim",
+let students = ["Tim",
 	"Pierre",
 	"Elli",
 	"Jana",
@@ -133,11 +133,26 @@ function generateByGroupSize(students, sizeOfGroup) {
 	return result;
 }
 
+/**
+ * Populate the student select list
+ * 
+ * @param {string[]} students is an array of names (strings) to be assigned* 
+ * 
+ */
+function populateStudentList(studentList) {
+	for(let i = 0; i < studentList.length; i++) {
+		let newOption = new Option(studentList[i],studentList[i]);
+		studentSelectBox.add(newOption);
+	}
+	return true;
+}
+
 // HTML DOM queries
 const grpList = document.getElementById("grp-list");
 const nbGrpForm = document.getElementById("nb-grp-form");
 const grpSizeForm = document.getElementById("grp-size-form");
 const alertMessage = document.getElementById("alert");
+const studentSelectBox = document.getElementById("student-select");
 
 /** Submit Button code for the number by group form */
 
@@ -203,16 +218,18 @@ grpSizeForm.onsubmit = function (event) {
 };
 
 /* Submit button code to import the list of student from a comma separated string */
- 
 let importButton = document.getElementById("import-button");
 
  importButton.addEventListener("click", function (event) {
 	// Prevent default page reloading
 	event.preventDefault();
 
-   	const importList = document.getElementById("import-list").value;
+	const importList = document.getElementById("import-list").value;
 	students = importList.split(",");
+	// Refresh the number of student:
 	document.getElementById("grp-size").innerHTML = students.length;
+	// Refresh the selectStudentList:
+	console.log("populateStudentList: " + populateStudentList(students));
 
 	/* Not sure it is useful
 	if (confirm(`Please confirm that the list is correct: ${students}`)) {
@@ -221,5 +238,16 @@ let importButton = document.getElementById("import-button");
 		console:log("import failure");
 	}
 	*/
+
+ });
+
+// Remove the selected student:
+let removeButton = document.getElementById("remove-button");
+
+removeButton.addEventListener("click", function (event) {
+	// Prevent default page reloading
+	event.preventDefault();
+
+	console.log(document.getElementById("selected-student").value);
 
  });
