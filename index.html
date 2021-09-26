@@ -17,23 +17,26 @@
         <header id="header">
             <h1>Remote Web Dev September</h1>
         </header>
-        <section class="main-section" id="student-list-seection">
+        <section class="main-section" id="student-list-section">
             <h2>Student list import</h2>
             <details>
                 <form id="student-list-form">
-                    <input id="import-list" type="text" value="Copy/past the list of names (comma separated) here">
+                    <label for="import-list" class="matter-textfield-outlined">
+                        <input id="import-list" type="text" placeholder=" ">
+                        <span>Import a list of names (CSV)</span>
+                    </label>
                     <button type="submit" class="matter-button-contained" id="import-button">Import</button>
-                    <div id="import-div">
-                        <label>Group size: </label>
+                    <label id="import-div">
                         <output id="grp-size">0</output>
-                    </div>
-                    <div id="select-2-remove">
-                        <label>Select</label>
+                        <span>Group size</span>
+                    </label>
+                    <label id="select-2-remove" for="student-select">
                         <select id="student-select">
                             <option value="">----</option>
                         </select>
-                        <button type="submit" class="matter-button-contained" id="remove-button">Remove</button>
-                    </div>
+                        <span>Remove a student</span>
+                    </label>
+                    <button type="submit" class="matter-button-contained" id="remove-button">Remove</button>
                 </form>
             </details>
         </section>
@@ -59,13 +62,19 @@
         <section class="main-section" id="grp-section">
             <h2>Team maker</h2>
             <form id="nb-grp-form">
-                <label>Number of groups<input type="number" id="nb-grp-label" value="2"></label>
+                <label class="matter-textfield-outlined">
+                    <input type="number" id="nb-grp-label" placeholder=" ">
+                    <span>Number of groups</span>
+                </label>
                 <button type="submit" class="matter-button-contained">Generate</button>
             </form>
             
                 <p>or</p>
             <form id="grp-size-form">
-                <label>Devs per group<input type="number" id="grp-size-label" value="3"></label>
+                <label class="matter-textfield-outlined">
+                    <input type="number" id="grp-size-label" placeholder=" ">
+                    <span>Devs per group</span>
+                </label>
                 <button type="submit" class="matter-button-contained">Generate</button>
             </form>
             <div class="grp-subsection">

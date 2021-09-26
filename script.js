@@ -136,7 +136,7 @@ function generateByGroupSize(students, sizeOfGroup) {
 /**
  * Populate the student select list
  * 
- * @param {string[]} students is an array of names (strings) to be assigned* 
+ * @param {string[]} studentList is an array of names (strings) to be assigned*
  * 
  */
 function populateStudentList(studentList) {
@@ -227,7 +227,7 @@ let importButton = document.getElementById("import-button");
 	const importList = document.getElementById("import-list").value;
 	students = importList.split(",");
 	// Refresh the number of student:
-	document.getElementById("grp-size").innerHTML = students.length;
+	document.getElementById("grp-size").innerHTML = students.length.toString();
 	// Refresh the selectStudentList:
 	console.log("populateStudentList: " + populateStudentList(students));
 
@@ -248,6 +248,6 @@ removeButton.addEventListener("click", function (event) {
 	// Prevent default page reloading
 	event.preventDefault();
 
-	console.log(document.getElementById("selected-student").value);
+	console.log(document.getElementById("student-select").value);
 
  });
