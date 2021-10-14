@@ -1,5 +1,6 @@
-const students = [
-	"Tim",
+let students = [];
+/* Commented out because this variable is now assigned with the import list method.
+let students = ["Tim",
 	"Pierre",
 	"Elli",
 	"Jana",
@@ -9,6 +10,7 @@ const students = [
 	"Gauthier",
 	"Elisa",
 ];
+*/
 
 /**
  * Removes all the child nodes from a node
@@ -131,13 +133,28 @@ function generateByGroupSize(students, sizeOfGroup) {
 	return result;
 }
 
-// HTML DOM queries
-const grpList = document.getElementById("grp-list"); //studentList
-const nbGrpForm = document.getElementById("nb-grp-form"); //form1
-const grpSizeForm = document.getElementById("grp-size-form"); //form2
-const alertMessage = document.getElementById("alert");
+/**
+ * Populate the student select list
+ * 
+ * @param {string[]} studentList is an array of names (strings) to be assigned*
+ * 
+ */
+function populateStudentList(studentList) {
+	for(let i = 0; i < studentList.length; i++) {
+		let newOption = new Option(studentList[i],studentList[i]);
+		studentSelectBox.add(newOption);
+	}
+	return true;
+}
 
-/** Submit Button code for the first form */
+// HTML DOM queries
+const grpList = document.getElementById("grp-list");
+const nbGrpForm = document.getElementById("nb-grp-form");
+const grpSizeForm = document.getElementById("grp-size-form");
+const alertMessage = document.getElementById("alert");
+const studentSelectBox = document.getElementById("student-select");
+
+/** Submit Button code for the number by group form */
 
 nbGrpForm.onsubmit = function (event) {
 	// List of students (Not sure why but it needs to be here!)
@@ -170,7 +187,7 @@ nbGrpForm.onsubmit = function (event) {
 	}
 };
 
-/** Submit Button code for the second form */
+/** Submit Button code for the group size form */
 grpSizeForm.onsubmit = function (event) {
 	// Prevent default page reloading
 	event.preventDefault();
@@ -199,3 +216,38 @@ grpSizeForm.onsubmit = function (event) {
 		grpList.appendChild(myElement);
 	}
 };
+
+/* Submit button code to import the list of student from a comma separated string */
+let importButton = document.getElementById("import-button");
+
+ importButton.addEventListener("click", function (event) {
+	// Prevent default page reloading
+	event.preventDefault();
+
+	const importList = document.getElementById("import-list").value;
+	students = importList.split(",");
+	// Refresh the number of student:
+	document.getElementById("grp-size").innerHTML = students.length.toString();
+	// Refresh the selectStudentList:
+	console.log("populateStudentList: " + populateStudentList(students));
+
+	/* Not sure it is useful
+	if (confirm(`Please confirm that the list is correct: ${students}`)) {
+		console.log("import ok");
+	  } else {
+		console:log("import failure");
+	}
+	*/
+
+ });
+
+// Remove the selected student:
+let removeButton = document.getElementById("remove-button");
+
+removeButton.addEventListener("click", function (event) {
+	// Prevent default page reloading
+	event.preventDefault();
+
+	console.log(document.getElementById("student-select").value);
+
+ });
